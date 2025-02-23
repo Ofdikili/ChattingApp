@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Chatting
+
+  Created by Ömer Faruk Dikili on 23.02.2025.
+  
+*/
+"welcome_message" = "WhatsApp'a Hoş Geldiniz";
+"terms_of_service" = "Hizmet Şartlarımızı Okuyun";
+"accept_terms" = ". Devam etmek için Kabul Et'e tıklayın";
+"turkish" = "Türkçe";
+"english" = "İngilzce";
+"agree_and_continue" = "Kabul Et ve Devam Et";
