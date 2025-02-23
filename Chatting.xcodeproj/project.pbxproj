@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		78C1421A2D6A93F600532D86 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78C142182D6A93F600532D86 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		78C141F62D6A717400532D86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,8 @@
 		78C141E52D6A717200532D86 /* Chatting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C141F52D6A717400532D86 /* ChattingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChattingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C141FF2D6A717400532D86 /* ChattingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChattingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C1421B2D6A943600532D86 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78C1421C2D6A946C00532D86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +81,7 @@
 		78C141DC2D6A717200532D86 = {
 			isa = PBXGroup;
 			children = (
+				78C142172D6A93B700532D86 /* Resources */,
 				78C141E72D6A717200532D86 /* Chatting */,
 				78C141F82D6A717400532D86 /* ChattingTests */,
 				78C142022D6A717400532D86 /* ChattingUITests */,
@@ -90,6 +97,14 @@
 				78C141FF2D6A717400532D86 /* ChattingUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		78C142172D6A93B700532D86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78C142182D6A93F600532D86 /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +207,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 78C141DC2D6A717200532D86;
 			minimizedProjectReferenceProxies = 1;
@@ -212,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C1421A2D6A93F600532D86 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +284,18 @@
 			targetProxy = 78C142002D6A717400532D86 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		78C142182D6A93F600532D86 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C1421B2D6A943600532D86 /* tr */,
+				78C1421C2D6A946C00532D86 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		78C142072D6A717400532D86 /* Debug */ = {
