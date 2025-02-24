@@ -10,17 +10,16 @@ import SwiftUI
 struct TabItemView: View {
     var itemImage : String
     var itemName : String
-    var itemIndex : Int
-    var selectedItemIndex : Int
     var body: some View {
         VStack {
             Image(systemName: itemImage)
-                .environment(\.symbolVariants, itemIndex == selectedItemIndex ?.fill : .none)
             Text(itemName)
         }
     }
 }
 
+//    .environment(\.symbolVariants, itemIndex == selectedItemIndex ?.fill : .none)
+
 #Preview {
-    TabItemView(itemImage: "String", itemName: "", itemIndex: 1,selectedItemIndex: 1)
+    TabItemView(itemImage: "String", itemName: "")
 }

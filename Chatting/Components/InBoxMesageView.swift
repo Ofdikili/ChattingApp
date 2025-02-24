@@ -24,7 +24,7 @@ struct InBoxMesageView: View {
                     Text("Yesterday")
                         .font(.subheadline)
                         .foregroundStyle(Color(.systemGray))
-                    Image(systemName: "chevron.right").foregroundStyle(Color(.systemGray))
+                 
 
                 }
                 
