@@ -21,7 +21,7 @@ struct MainTabView: View {
                     itemImage: Tab.update.icon, itemName: Tab.update.title
                 )
             }
-            UpdatesView()
+            CallsView()
             .tabItem {
                 TabItemView(
                     itemImage: Tab.calls.icon, itemName: Tab.calls.title
