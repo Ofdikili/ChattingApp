@@ -12,72 +12,94 @@ struct ChatView: View {
 
     var body: some View {
         NavigationStack {
-            VStack{
-                ScrollView{
-                    Text("Ofd")
-                 }
-                .scrollIndicators(.never)
-                Spacer()
-                
-                HStack{
-                    ZStack{
-                        TextField("Message...", text: $vm.text)
-                            .padding(.vertical,12)
-                            .padding(.leading,44)
-                            .padding(.trailing,60)
-                            .background(Color(.systemGroupedBackground))
-                            .clipShape(Capsule())
-                        HStack{
-                            Image(systemName:"face.smiling")
-                            Spacer()
-                            Image(systemName:"paperclip")
-                            Image(systemName:"camera.fill")
-                        }.padding(.horizontal)
+                List(){
+                    archiveButton()
+                    ForEach(0 ..< 5) { item in
+                        ChannelItemView()
                     }
-                        Image(systemName:
-                                vm.text.isEmpty ?
-                              "mic.circle.fill" : "play.circle.fill")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .foregroundStyle(Color(.darkGray))
-                    
-                }.padding()
-               
-            }
-            .background(
-                Image("background_image")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(edges: .all)
-                    .frame(maxWidth: .infinity,maxHeight: .infinity)
-            )
-            .toolbar{
-                ToolbarItem(placement: .topBarLeading){
-                    HStack{
-                        Image(systemName: "arrow.backward")
-                        HStack{
-                            ProfileImageView(profileImageSize: .xxSmall, user: User.MOCK_User)
-                            Text("Ömer Faruk Dikili")
-                        }
-                    }                    .foregroundStyle(.white)
-
+                    inboxFooterView()
+                        .listRowSeparator(.hidden)
+                }.navigationTitle(Text("Chats"))
+                .searchable(text:$vm.text)
+                .listStyle(.plain)
+                .toolbar{
+                    toolBarLeadingItem()
+                    toolBarTralingItem()
                 }
-                ToolbarItem(placement: .topBarTrailing){
-                    HStack(spacing:24){
-                        Image(systemName: "video.fill")
-                        Image(systemName: "phone.fill")
-                        Image(systemName: "ellipsis")
-                    }
-                    .foregroundStyle(.white)
-                }
-            }
-            .toolbarBackground(Color(.darkGray))
-            .toolbarBackgroundVisibility(.visible)
+             }
+             
         }
     }
+
+
+extension ChatView {
+    @ToolbarContentBuilder
+    private func toolBarLeadingItem() -> some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading){
+            Menu{
+                Button(){
+                    
+                }label: {
+                    Label("Select Chats",systemImage: "checkmark.circle")
+                }
+            }label: {
+                Image(systemName: "ellipsis.circle")
+                
+            }
+        }
+    }
+    @ToolbarContentBuilder
+    private func toolBarTralingItem() -> some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing){
+            HStack(spacing:24){
+                aiButton()
+                cameraButton()
+                plusButton()
+            }
+        }
+    }
+    private func aiButton () -> some View {
+        Button{}label: {
+            Image(.circle)
+        }
+    }
+    private func cameraButton () -> some View {
+        Button{}label: {
+            Image(systemName: "camera")
+        }
+    }
+    private func plusButton () -> some View {
+        Button{}label: {
+            Image(systemName: "plus.circle.fill")
+        }
+    }
+    private func archiveButton () -> some View {
+        Button{}
+        label: {
+            Label("Archived",systemImage: "archivebox.fill")
+                .body
+                .padding()
+                .foregroundStyle(.gray)
+        }
+    }
+    private func inboxFooterView()-> some View{
+        return  HStack{
+            Image(systemName: "lock.fill")
+
+           (
+            Text("Yor personal messages are ")
+            +
+            Text("end-to-end encrypted")
+                .foregroundStyle(.blue)
+           )
+           .foregroundStyle(.gray)
+           .font(.caption)
+           .padding(.horizontal)
+
+        }
+        }
+    
 }
-
-
 
 #Preview {
     ChatView()
