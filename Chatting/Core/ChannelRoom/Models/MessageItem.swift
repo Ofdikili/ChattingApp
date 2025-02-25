@@ -15,12 +15,14 @@ struct MessageItem : Identifiable {
     
     static let sentPlaceholder = MessageItem(text: "Hello message", direction: .sent,messageType: .text)
     static let receivePlaceholder = MessageItem(text: "Hello message", direction: .received,messageType: .text)
+    static let audioPlaceholder = MessageItem(text: "", direction: .sent,messageType: .audio)
     
     static let stubMessages : [MessageItem] =
     [
         MessageItem(text: "Hi There", direction: .sent,messageType: .text),
         MessageItem(text: "Check Out this photo", direction: .received,messageType: .photo),
-        MessageItem(text: "Play Out this video", direction: .sent,messageType: .video)
+        MessageItem(text: "Play Out this video", direction: .sent,messageType: .video),
+        MessageItem(text: "", direction: .sent,messageType: .audio)
         
     ]
     
@@ -42,7 +44,7 @@ struct MessageItem : Identifiable {
     }
 }
 enum MessageType {
-    case text, photo, video
+    case text, photo, video , audio
 }
 
 enum MessageDirection {
