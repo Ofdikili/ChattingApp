@@ -15,7 +15,11 @@ struct ChatView: View {
                 List(){
                     archiveButton()
                     ForEach(0 ..< 5) { item in
-                        ChannelItemView()
+                        NavigationLink{
+                            ChatRoomScreen()
+                        }label:{
+                            ChannelItemView()
+                        }
                     }
                     inboxFooterView()
                         .listRowSeparator(.hidden)

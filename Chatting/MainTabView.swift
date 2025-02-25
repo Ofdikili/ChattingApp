@@ -33,13 +33,13 @@ struct MainTabView: View {
                 TabItemView(
                     itemImage: Tab.communities.icon, itemName: Tab.communities.title)
               }
-            CallsView()
+            ChatView()
             .tabItem {
                 TabItemView(
                     itemImage: Tab.chats.icon, itemName: Tab.chats.title )
                 
             }
-            CallsView()
+            SettingsView()
             .tabItem {
                 TabItemView(
                     itemImage: Tab.settings.icon, itemName: Tab.settings.title )
