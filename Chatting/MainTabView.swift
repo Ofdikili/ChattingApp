@@ -39,7 +39,7 @@ struct MainTabView: View {
                     itemImage: Tab.chats.icon, itemName: Tab.chats.title )
                 
             }
-            CallsView()
+            SettingsView()
             .tabItem {
                 TabItemView(
                     itemImage: Tab.settings.icon, itemName: Tab.settings.title )
