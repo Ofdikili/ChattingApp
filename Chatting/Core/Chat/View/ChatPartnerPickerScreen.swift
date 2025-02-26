@@ -4,12 +4,16 @@ import SwiftUI
 struct ChatPartnerPickerScreen: View {
     @State private var searchText = ""
     @Environment(\.dismiss) private var dismiss
-    
+    @StateObject private var vm = ChatPartnerPickerViewModel()
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $vm.navStack){
             List {
                 ForEach(ChatPartnerPickerOption.allCases) { item in
                     HeaderItemView(item: item)
+                        .onTapGesture {
+                            vm.navStack.append(.groupPartnerPicker)
+                        }
                 }
                 
                 Section {
@@ -22,12 +26,30 @@ struct ChatPartnerPickerScreen: View {
                         .bold()
                 }
             }
-            .searchable(text: $searchText, prompt: "Search name or number")
+            .searchable(text: $searchText,
+                        placement : .navigationBarDrawer(displayMode: .always), prompt: "Search name or number"
+            )
             .navigationTitle("New Chat")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 trailingNavItem()
             }
+            .navigationDestination(
+                for : ChannelCreationRouteType.self){
+                    route in
+                    destinationView(for: route)
+                }
+        }
+    }
+}
+extension ChatPartnerPickerScreen {
+    @ViewBuilder
+    private func destinationView(for route : ChannelCreationRouteType)->some View{
+        switch route {
+        case .groupPartnerPicker:
+            GroupPartnerPickerView(vm: vm)
+        case .setUpGroupChat:
+            NewGroupSetUpScreen(viewModel: vm)
         }
     }
 }

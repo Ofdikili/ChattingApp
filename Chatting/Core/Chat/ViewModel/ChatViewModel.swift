@@ -2,13 +2,12 @@
 //  ChatViewModel.swift
 //  Chatting
 //
-//  Created by Ömer Faruk Dikili on 24.02.2025.
+//  Created by Ömer Faruk Dikili on 26.02.2025.
 //
-
+import Foundation
 import Observation
 
-@Observable
-class ChatViewModel {
-    var showChatPartnerPickerView = false
-    var text: String = ""
+final class ChatViewModel : ObservableObject {
+    @Published var showChatPartnerPickerView = false
+    @Published var text: String = ""
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var vm = ChatViewModel()
+    @StateObject private var vm = ChatViewModel()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(){
                 List(){
                     archiveButton()
                     ForEach(0 ..< 5) { item in
