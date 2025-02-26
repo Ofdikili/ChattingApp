@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var vm = ChatViewModel()
+    @StateObject private var vm = ChatViewModel()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(){
                 List(){
                     archiveButton()
                     ForEach(0 ..< 5) { item in
@@ -29,6 +29,9 @@ struct ChatView: View {
                 .toolbar{
                     toolBarLeadingItem()
                     toolBarTralingItem()
+                }
+                .sheet(isPresented: $vm.showChatPartnerPickerView){
+                    ChatPartnerPickerScreen()
                 }
              }
              
@@ -73,8 +76,10 @@ extension ChatView {
         }
     }
     private func plusButton () -> some View {
-        Button{}label: {
-            Image(systemName: "plus.circle.fill")
+        Button{
+            vm.showChatPartnerPickerView = true
+        }label: {
+            Image(.plus)
         }
     }
     private func archiveButton () -> some View {
