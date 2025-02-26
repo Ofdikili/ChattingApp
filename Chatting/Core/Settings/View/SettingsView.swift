@@ -35,6 +35,7 @@ struct SettingsView: View {
             .navigationTitle(Text("Settings"))
             .searchable(text: $searchText)
             .toolbar{
+                settingsToolbarLeading()
                 settingsToolbarTraling()
             }
         }
@@ -47,6 +48,17 @@ extension SettingsView{
         return  ToolbarItem{
             Button("Save"){
                 
+            } .bold()
+
+        }
+    }
+    
+    private func settingsToolbarLeading() -> some ToolbarContent {
+        return  ToolbarItem{
+            Button("Log Out"){
+                Task{
+                   try await AuthManager.shared.logOut()
+                }
             } .bold()
 
         }

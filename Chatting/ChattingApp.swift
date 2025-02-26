@@ -29,7 +29,7 @@ struct ChattingApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-          MainTabView()
+          RootView()
       }
     }
   }
