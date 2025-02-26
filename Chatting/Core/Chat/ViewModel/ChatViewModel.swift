@@ -9,5 +9,6 @@ import Observation
 
 @Observable
 class ChatViewModel {
+    var showChatPartnerPickerView = false
     var text: String = ""
 }

@@ -30,6 +30,9 @@ struct ChatView: View {
                     toolBarLeadingItem()
                     toolBarTralingItem()
                 }
+                .sheet(isPresented: $vm.showChatPartnerPickerView){
+                    ChatPartnerPickerScreen()
+                }
              }
              
         }
@@ -73,8 +76,10 @@ extension ChatView {
         }
     }
     private func plusButton () -> some View {
-        Button{}label: {
-            Image(systemName: "plus.circle.fill")
+        Button{
+            vm.showChatPartnerPickerView = true
+        }label: {
+            Image(.plus)
         }
     }
     private func archiveButton () -> some View {
